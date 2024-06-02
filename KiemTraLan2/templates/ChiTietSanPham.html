@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    {% if messages %}
+    <div class="alert alert-success" role="alert">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+    <!-- Phần còn lại của nội dung -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <img class="card-img-top img-fluid border rounded shadow" src="{% static 'img/' %}{{ product.HinhAnhDaiDien }}" alt="{{ product.TenSanPham }}">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2 class="mb-3">{{ product.TenSanPham }}</h2>
+            <h4 class="text-danger mb-3">Giá: <span id="product-price">{{ product.Gia }}</span> đ</h4>
+            <p class="mb-3">{{ product.MoTa }}</p>
+            <form action="{% url 'themvaogiohang' product.MaSanPham %}" method="post" class="mb-3">
+                
+                <div class="row">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="quantity" class="font-weight-bold">Số lượng:</label>
+                        <input type="number" name="quantity" id="quantity" class="form-control w-25 d-inline-block" value="1" min="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var priceElement = document.getElementById("product-price");
+    var price = parseFloat(priceElement.innerText);
+    priceElement.innerText = price.toLocaleString('vi-VN');
+});
+</script>
+{% endblock %}

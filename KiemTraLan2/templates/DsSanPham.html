@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img class="card-img-top" src="{% static 'img/' %}{{ product.HinhAnhDaiDien }}" alt="{{ product.TenSanPham }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.TenSanPham }}</h5>
+                    <p class="card-text">Giá: <span class="product-price">{{ product.Gia }}</span> đ</p>
+                    <a href="{% url 'ctsp' product.MaSanPham %}" class="btn btn-primary">Xem Chi Tiết</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<section class="">
+    {% for icp in cart_items %}
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-img">
+                <img class="card-img-top" src="{% static 'img/' %}{{ icp.product.HinhAnhDaiDien }}" alt="{{ icp.product.TenSanPham }}">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">{{ icp.product.TenSanPham }}</h2>
+                <p class="card-text">{{ icp.product.Gia }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+<section class="text-center">
+    <p class="font-weight-bold">Tổng thành tiền: {{ total_price }}</p>
+    <a id="submitCart" href="{% url 'hoanthanh' %}" class="btn btn-success">hoàn tất đơn hàng</a>
+</section>
+{% endblock %}
+
+
+

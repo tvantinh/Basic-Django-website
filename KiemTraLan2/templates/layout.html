@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Website</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="{% static '/bootstrap/css/bootstrap.min.css' %}"
+      type="text/css"
+    />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+            <div class="container">
+                <a class="navbar-brand text-white" href="#">GÀ RÁN POPEYES</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link text-white" href="#">KHUYẾN MÃI</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="{% url 'dssp' %}">THỰC ĐƠN</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="{% url 'donhang' %}">THEO DÕI ĐƠN HÀNG</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="{% url 'ThemThongTinBuoiTiec' %}">ĐẶT TIỆC</a></li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#"><i class="bi bi-cart"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container mt-4">
+        {% block content %}
+        
+        {% endblock %}
+    </main>
+    <footer class="bg-warning text-white text-center py-3">
+        <div class="container">
+            <p>Hotline đặt hàng nhanh chóng: 19006008</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a class="text-white" href="#">Về chúng tôi</a></li>
+                <li class="list-inline-item"><a class="text-white" href="#">Tuyển dụng</a></li>
+                <li class="list-inline-item"><a class="text-white" href="#">E-voucher</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>

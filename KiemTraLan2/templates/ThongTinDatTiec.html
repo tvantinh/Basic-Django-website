@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-6">
+        <div class="h3">Thông tin liên hệ</div>
+          {% csrf_token %} {{ ttnd.as_p }}
+    </div>
+    <div  class="col-6">
+        <div class="h3">Thông tin buổi tiệc</div>
+          {% csrf_token %} {{ ttbt.as_p }}
+    </div>
+</div>
+<a href="" class="btn btn-success">xác nhận đặt tiệc</a>
+{% endblock %}
+
+
+
